@@ -1,6 +1,12 @@
 require 'rack'
+require "rack-timeout"
+
+#use Rack::Timeout          # Call as early as possible so rack-timeout runs before all other middleware.
+Rack::Timeout.timeout = 5
+
 
 app = Proc.new do |env|
+  sleep 10
   ['200', {'Content-Type' => 'text/html'}, ['Hello from JRuby.']]
 end
 
