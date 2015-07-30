@@ -1,6 +1,7 @@
 web:
   build: .
-  command: 'bundle exec puma -p 8080 -e ${RACK_ENV:-development} -t ${PUMA_MIN_THREADS:-5}:${PUMA_MAX_THREADS:-5}'
+  command: 'bash -c "bundle exec puma -p $PORT -e ${RACK_ENV:-development} -t ${PUMA_MIN_THREADS:-5}:${PUMA_MAX_THREADS:-5}"'
+  working_dir: /app/user
   environment:
     PORT: 8080
     DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
@@ -11,6 +12,7 @@ web:
 shell:
   build: .
   command: bash
+  working_dir: /app/user
   environment:
     PORT: 8080
     DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
