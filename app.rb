@@ -2,7 +2,7 @@ require 'rack'
 require "rack-timeout"
 
 #use Rack::Timeout          # Call as early as possible so rack-timeout runs before all other middleware.
-Rack::Timeout.timeout = 5
+Rack::Timeout.timeout = 30
 
 
 app = Proc.new do |env|

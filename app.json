@@ -1,0 +1,6 @@
+{
+  "name": "Example Name",
+  "description": "An example app.json for heroku-docker",
+  "image": "jkutner/jruby",
+  "addons": [ "heroku-postgresql" ]
+}
